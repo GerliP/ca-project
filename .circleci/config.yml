@@ -10,8 +10,8 @@ jobs:
             pip install --trusted-host pypi.python.org -r requirements.txt 
             python tests.py
   
-    dockerize:
-      machine: true
+  dockerize:
+    machine: true
       steps:
         - checkout:
         # Login to docker
@@ -22,8 +22,8 @@ jobs:
 
         #deploy the image
         - run: docker push $DOCKER_USER/ca-project:$CIRCLE_SHA1
-    deploy: 
-      steps:
+  deploy: 
+    steps:
       - run:
           name: Deploy Over SSH
           command: |
