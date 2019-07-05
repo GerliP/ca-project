@@ -22,7 +22,8 @@ jobs:
 
         #deploy the image
       - run: docker push $DOCKER_USER/ca-project:$CIRCLE_SHA1
-  deploy: 
+  deploy:
+    machine: true
     steps:
       - run:
           name: Deploy Over SSH
