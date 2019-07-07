@@ -7,9 +7,10 @@ jobs:
       - checkout
       - run: 
           command: |
-            pip install --trusted-host pypi.python.org -r requirements.txt 
+            pip install -r requirements.txt 
             python tests.py
-  
+      - store_test_results:
+          path: build/test-results  
   dockerize:
     machine: true
     steps:
@@ -26,9 +27,9 @@ jobs:
     machine: true
     steps:
       - run:
-          name: Deploy Over SSH
+          mame: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$SSH_HOST "docker run -d -p 5000:5000 $DOCKER_USER/ca-project:$CIRCLE_SHA1"
+            ssh $SSH_USER@$SSH_HOST "docker run --rm -d -p 5000:5000 $DOCKER_USER/ca-project:$CIRCLE_SHA1"
 workflows: 
   version: 2
   test: 

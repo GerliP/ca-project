@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/GerliP/ca-project.svg?style=svg)](https://circleci.com/gh/GerliP/ca-project)
+
 # Keystone project
 
 This project is meant for you to make awesome software, with the skills in your Continuous Delivery and DevOps toolbox.
