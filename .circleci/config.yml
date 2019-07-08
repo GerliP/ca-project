@@ -9,7 +9,7 @@ jobs:
           command: |
             pip install -r requirements.txt 
             python tests.py
-            echo $CIRCLECI_BRANCH
+            echo $CIRCLE_BRANCH
       - store_test_results:
           path: build/test-results  
   dockerize:
